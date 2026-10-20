@@ -35,3 +35,14 @@ Verificação realizada em 18/10/2026, no fuso de São Paulo.
 Não foram medidos Core Web Vitals de campo nem executada auditoria Lighthouse. As fontes dependem do Google Fonts, com fallback local. A página usa renderização React no cliente; título, descrição, canonical e Open Graph estão no HTML inicial. A publicação privada não representa a abertura comercial das inscrições. Revisar o texto com a fonte original e preencher as integrações registradas no README antes da divulgação pública.
 
 Registros visuais locais: `artifacts/desktop.jpg`, `artifacts/anatomia-desktop.jpg`, `artifacts/mobile.jpg`.
+
+## Atualização de 19/10/2026 — Conheça sua mentora
+
+- Nova seção após `mentoria` e antes de `jornada`, totalizando 13 seções principais.
+- Conferida em desktop de 1440 pixels, tablet de 768 pixels e celulares de 390 e 320 pixels, sem overflow horizontal após ajustar a posição do desenho de raízes.
+- Retrato WebP carregado com sucesso e enquadramento facial preservado. Fallback JPEG confirmado como cópia idêntica ao arquivo fornecido.
+- Formação completa abre e fecha com Enter no teclado e abre por clique no celular. Os 14 itens do material original foram conferidos no conteúdo implementado.
+- Contraste dos textos da nova seção verificado sobre o fundo creme: nenhum abaixo de 4,5:1. Nenhum erro de console observado.
+- Comparação do componente App com a versão anterior confirma que as demais seções foram preservadas integralmente; somente import e inserção do novo componente foram acrescentados. Ofertas, valores e CTAs existentes permanecem iguais.
+- Verificação TypeScript e build de produção aprovados. O empacotamento final repete o build.
+- Registros: `artifacts/mentora-desktop.jpg` e `artifacts/mentora-mobile.jpg`.
