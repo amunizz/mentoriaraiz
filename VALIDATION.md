@@ -46,3 +46,15 @@ Registros visuais locais: `artifacts/desktop.jpg`, `artifacts/anatomia-desktop.j
 - Comparação do componente App com a versão anterior confirma que as demais seções foram preservadas integralmente; somente import e inserção do novo componente foram acrescentados. Ofertas, valores e CTAs existentes permanecem iguais.
 - Verificação TypeScript e build de produção aprovados. O empacotamento final repete o build.
 - Registros: `artifacts/mentora-desktop.jpg` e `artifacts/mentora-mobile.jpg`.
+
+## Atualização de 20/10/2026 — Pagamento via Pix
+
+- QR original, recorte e QR exibido na captura desktop decodificados com Apple Vision e comparados integralmente ao payload fornecido: correspondência exata. Valor R$ 1.997,00, beneficiária PRISCILA V DOMINGOS e checksum A0D6 conferidos.
+- Sete testes automatizados aprovados: payload/CRC, cópia exata, permissão negada, API indisponível, falha de cópia compatível, seleção indisponível e exceção no fallback.
+- Cópia real conferida por colagem em campo local: os 156 caracteres correspondem exatamente ao payload. A mensagem “Código Pix copiado!” foi observada.
+- Modal abre, fecha por Escape e pelo botão; foco retorna ao botão “Pagar com Pix”. Tab no último controle retorna ao primeiro e Shift+Tab no primeiro retorna ao último.
+- Reabertura inicia no topo. Rolagem interna e ausência de overflow horizontal conferidas em 320 e 390 pixels. Desktop inspecionado em 1440 × 1100.
+- A versão móvel prioriza Copia e Cola. O botão de fechamento permanece no cabeçalho durante a rolagem.
+- Comparação automática confirma que o restante do componente App foi preservado, exceto importação/inserção do Pix e aviso do link provisório solicitado. Componente Enrollment inalterado; somente seu endereço configurável recebeu a URL da Hotmart autorizada pelo usuário.
+- Verificação de tipos e testes aprovados; build de produção executado pelo empacotamento. Nenhuma confirmação bancária automática implementada ou transação realizada.
+- Registros visuais: `artifacts/pix-desktop.jpg`, `artifacts/pix-mobile.jpg`.

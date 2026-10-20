@@ -1,0 +1,63 @@
+@reference "./styles.css";
+
+@layer components {
+  .pix-open-button { @apply w-full; margin-top:24px; }
+  .pix-checkout-note { color:#d5ddcd; font-size:10px; margin-top:10px; line-height:1.7; }
+  .pix-dialog { @apply bg-cream text-forest; width:min(820px,calc(100vw - 32px)); max-width:none; max-height:calc(100dvh - 32px); padding:0; margin:auto; border:1px solid #8e9c83; overflow-y:auto; overscroll-behavior:contain; }
+  .pix-dialog::backdrop { background:rgba(28,42,33,.64); backdrop-filter:blur(3px); }
+  .pix-dialog[open] { animation:pix-arrive .25s cubic-bezier(.16,1,.3,1); }
+  .pix-dialog-header { @apply flex items-start justify-between gap-5 bg-cream sticky top-0; z-index:1; padding:30px 34px 25px; border-bottom:1px solid #243d3226; }
+  .pix-dialog-header .eyebrow { font-size:9px; }
+  .pix-dialog-header h2 { font-size:48px; margin-top:15px; }
+  .pix-close { @apply flex items-center justify-center shrink-0; width:44px; height:44px; background:none; border:1px solid #243d3238; }
+  .pix-close:hover { background:#eae8dc; }
+  .pix-dialog-body { padding:28px 34px 30px; }
+  .pix-payment-summary { @apply grid items-center; grid-template-columns:1fr 1fr; gap:24px; }
+  .pix-modal-amount { @apply font-editorial; font-size:49px; line-height:1.1; letter-spacing:-.035em; }
+  .pix-modal-amount>span { @apply block font-sans; font-size:12px; line-height:1.6; letter-spacing:0; margin-top:5px; }
+  .pix-payment-summary .eyebrow { font-size:8px; }
+  .pix-beneficiary { font-size:13px; margin-top:6px; font-weight:500; }
+  .pix-introduction { font-size:13px; color:#576151; line-height:1.8; margin-top:21px; max-width:65ch; }
+  .pix-payment-grid { @apply grid items-start; grid-template-columns:minmax(0,.9fr) minmax(0,1fr); gap:28px; margin-top:24px; }
+  .pix-qr-area,.pix-copy-area { @apply min-w-0; }
+  .pix-qr-frame { @apply mx-auto; background:#fff; padding:24px; width:100%; max-width:304px; aspect-ratio:1; }
+  .pix-qr-frame img { @apply block w-full h-full; object-fit:contain; }
+  .pix-qr-error { @apply flex items-center justify-center h-full; color:#576151; font-size:13px; line-height:1.8; }
+  .pix-qr-caption { @apply text-center; font-size:9px; color:#576151; margin-top:10px; }
+  .pix-copy-area>label { @apply block; font-size:9px; }
+  .pix-copy-helper { font-size:12px; color:#576151; margin-top:9px; line-height:1.8; }
+  .pix-copy-area textarea { @apply block w-full; color:#344c3c; background:#ebe9dd; border:1px solid #243d323b; border-radius:0; padding:12px; font-family:ui-monospace,monospace; font-size:11px; line-height:1.7; overflow-wrap:anywhere; word-break:break-all; resize:vertical; min-height:126px; margin-top:15px; }
+  .pix-copy-area textarea:focus-visible { outline:2px solid #243d32; outline-offset:3px; }
+  .pix-copy-button { @apply w-full; padding:13px 18px; min-height:50px; margin-top:13px; font-size:12px; }
+  .pix-copy-button:disabled { cursor:wait; opacity:.7; }
+  .pix-copy-feedback { font-size:11px; line-height:1.75; margin-top:12px; min-height:39px; color:#576151; }
+  .pix-manual-copy { color:#783b2e; }
+  .pix-instructions { border-top:1px solid #243d322b; margin-top:25px; padding-top:23px; }
+  .pix-instructions h3 { font-size:28px; line-height:1.2; }
+  .pix-instructions ol { @apply list-decimal; margin:15px 0 0; padding-left:20px; }
+  .pix-instructions li { font-size:12px; line-height:1.8; padding-left:6px; color:#576151; }
+  .pix-instructions li+li { margin-top:5px; }
+  .pix-payment-notice { border-left:1px solid #89977c; padding-left:15px; margin-top:22px; }
+  .pix-payment-notice p { font-size:11px; line-height:1.8; color:#576151; }
+  .pix-payment-notice p+p { margin-top:10px; }
+  .pix-return { margin-top:24px; }
+}
+@keyframes pix-arrive { from {opacity:0;transform:translateY(10px)} to {opacity:1;transform:translateY(0)} }
+@media(max-width:767px) {
+  .pix-dialog { width:calc(100vw - 24px); max-height:calc(100dvh - 24px); }
+  .pix-dialog-header { padding:23px 20px 22px; gap:12px; }
+  .pix-dialog-header .eyebrow { font-size:8px; }
+  .pix-dialog-header h2 { font-size:42px; }
+  .pix-dialog-body { padding:23px 20px 26px; }
+  .pix-payment-summary { grid-template-columns:minmax(0,1fr); gap:19px; }
+  .pix-modal-amount { font-size:47px; }
+  .pix-introduction { font-size:13px; margin-top:17px; }
+  .pix-payment-grid { grid-template-columns:minmax(0,1fr); gap:23px; }
+  .pix-copy-area { grid-row:1; }
+  .pix-qr-area { grid-row:2; }
+  .pix-copy-helper,.pix-instructions li { font-size:13px; }
+  .pix-copy-area textarea { font-size:12px; min-height:135px; }
+  .pix-copy-feedback { font-size:12px; min-height:0; }
+  .pix-instructions { margin-top:27px; }
+  .pix-payment-notice p { font-size:12px; }
+}

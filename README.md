@@ -11,7 +11,7 @@ Página editorial em português brasileiro, construída com React, TypeScript, V
 
 ## Entrega e integrações
 
-- O checkout está desativado até o preenchimento de `offer.checkoutUrl` em `src/content.ts`. O botão explica que a inscrição ainda não está disponível. Nenhum dado pessoal é coletado.
+- O Pix à vista está disponível no modal de pagamento. O botão da plataforma mantém o comportamento anterior e utiliza `https://www.hotmart.com.br` como link provisório solicitado pelo usuário. Substituir `offer.checkoutUrl` em `src/content.ts` pelo checkout definitivo e remover a nota de link provisório quando estiver pronto. Nenhum dado pessoal é coletado.
 - A página não exibe quantidade de vagas restantes, contagem regressiva, depoimentos ou credenciais sem fonte.
 - Valores, número de encontros, duração e capacidade foram transcritos do briefing. O valor de referência é identificado como referência, sem preço anterior riscado. O total parcelado foi calculado: R$ 2.399,64.
 - Datas, horários, plataforma dos encontros, canal real de contato, termos da contratação, regras de gravação e política de privacidade não foram fornecidos.
@@ -45,3 +45,13 @@ A apresentação de Priscila Premavati fica entre a mentoria e a jornada. O comp
 Fonte editorial: `sobre_mentora.txt`, fornecido pelo usuário. O texto foi adaptado sem acrescentar credenciais. A citação sobre autorrespeito é literal. A trajetória completa fica em um elemento HTML `details`, acessível por clique e teclado.
 
 Fotografia: `foto_principal.jpeg`, fornecida pelo usuário. O fallback `public/assets/priscila-premavati.jpeg` é uma cópia idêntica do original. As versões WebP de 400 e 640 pixels, de aproximadamente 18 e 37 KB, foram apenas redimensionadas e comprimidas, sem geração de imagem, filtros ou alterações de identidade. O recorte vertical é feito pela apresentação em CSS; o enquadramento foi conferido em desktop, tablet e celular. Nenhuma dependência nova foi adicionada.
+
+## Pagamento via Pix — 20/10/2026
+
+`src/pix.ts` centraliza o payload fornecido, preservado caractere por caractere. `src/PixPayment.tsx` acrescenta o modal ao valor à vista, sem substituir o componente de pagamento parcelado. A imagem `public/assets/pix-raiz-qr.png` é um recorte sem filtros nem redimensionamento da imagem fornecida. Não foi gerado outro QR Code. O espaço branco de apresentação preserva o contraste de leitura.
+
+O QR Code da imagem original, do recorte PNG e da interface renderizada foi decodificado pelo Apple Vision: todos correspondem exatamente ao payload, ao valor `1997.00`, à beneficiária `PRISCILA V DOMINGOS` e ao checksum `A0D6`. Essa validação confirma a consistência dos dados fornecidos; não representa autenticação bancária do destinatário nem confirmação de transação. Nenhum pagamento foi realizado.
+
+A cópia usa Clipboard API, com fallback de seleção e cópia compatível, além de orientação manual se ambas as tentativas falharem. O modal nativo fecha por Escape, botão e clique no fundo; retorna o foco ao acionador, mantém o ciclo de Tab interno e permite rolagem própria. No celular, Copia e Cola aparece antes do QR. Não há endpoint de confirmação, aprovação automática ou alteração de status da inscrição.
+
+Testes sem dependências novas: `node --test tests/pix.test.mjs` (Node 24). A página `tests/clipboard-probe.html` permite testar colagem local na prévia e não é incluída no build de produção. Link provisório da Hotmart autorizado pelo usuário em 20/10/2026; não representa um checkout final da mentoria.
