@@ -2,7 +2,7 @@
 export const offer = {
   name: 'Mentoria R.A.I.Z.', duration: 'Dois meses', places: 10, meetings: 5,
   reference: 'R$ 3.385', cash: 'R$ 1.997', installments: '12x de R$ 199,97',
-  checkoutUrl: 'https://www.hotmart.com.br', // Link provisório solicitado; substituir pelo checkout definitivo.
+  checkoutUrl: 'https://pay.hotmart.com/H108128940C',
 };
 export const patterns = [
   { title: 'Gatilho', subtitle: 'Algo acontece.', body: 'Uma situação, uma palavra ou um silêncio pode iniciar uma reação conhecida. Observar o que aconteceu é o primeiro passo para olhar o processo com mais clareza.', example: 'Uma pessoa pede algo que você não quer fazer.' },

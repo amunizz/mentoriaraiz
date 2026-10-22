@@ -11,7 +11,7 @@ Página editorial em português brasileiro, construída com React, TypeScript, V
 
 ## Entrega e integrações
 
-- O Pix à vista está disponível no modal de pagamento. O botão da plataforma mantém o comportamento anterior e utiliza `https://www.hotmart.com.br` como link provisório solicitado pelo usuário. Substituir `offer.checkoutUrl` em `src/content.ts` pelo checkout definitivo e remover a nota de link provisório quando estiver pronto. Nenhum dado pessoal é coletado.
+- O Pix à vista está disponível no modal de pagamento. O botão da plataforma mantém o comportamento anterior e utiliza o checkout `https://pay.hotmart.com/H108128940C`, informado pelo usuário em 22/10/2026. Nenhum dado pessoal é coletado.
 - A página não exibe quantidade de vagas restantes, contagem regressiva, depoimentos ou credenciais sem fonte.
 - Valores, número de encontros, duração e capacidade foram transcritos do briefing. O valor de referência é identificado como referência, sem preço anterior riscado. O total parcelado foi calculado: R$ 2.399,64.
 - Datas, horários, plataforma dos encontros, canal real de contato, termos da contratação, regras de gravação e política de privacidade não foram fornecidos.
@@ -55,3 +55,7 @@ O QR Code da imagem original, do recorte PNG e da interface renderizada foi deco
 A cópia usa Clipboard API, com fallback de seleção e cópia compatível, além de orientação manual se ambas as tentativas falharem. O modal nativo fecha por Escape, botão e clique no fundo; retorna o foco ao acionador, mantém o ciclo de Tab interno e permite rolagem própria. No celular, Copia e Cola aparece antes do QR. Não há endpoint de confirmação, aprovação automática ou alteração de status da inscrição.
 
 Testes sem dependências novas: `node --test tests/pix.test.mjs` (Node 24). A página `tests/clipboard-probe.html` permite testar colagem local na prévia e não é incluída no build de produção. Link provisório da Hotmart autorizado pelo usuário em 20/10/2026; não representa um checkout final da mentoria.
+
+## Checkout atualizado — 22/10/2026
+
+O botão de pagamento pela plataforma utiliza `https://pay.hotmart.com/H108128940C`. O aviso de link provisório foi removido. Pix, preços e demais conteúdos não foram alterados. Build de produção verificado no empacotamento.
